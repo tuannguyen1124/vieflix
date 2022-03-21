@@ -8,7 +8,7 @@ class Video{
             $this->data = $input;
         }
         else{
-            $query = $this->con->prepare("SELECT * FROM entities WHERE id=:id");
+            $query = $this->con->prepare("SELECT * FROM videos WHERE id=:id");
             $query->bindValue(':id', $input);
             $query->execute();
 
@@ -31,12 +31,52 @@ class Video{
     }
     public function getFilePath(){
         return $this->data["filePath"];
-    }
+    } 
     public function getThumbnail(){
         return $this->entity->getThumbnail();
     }
     public function getEpisodeNumber(){
         return $this->data["episode"];
+    }
+    public function getSeasonNumber(){
+        return $this->data["season"];
+    }
+    public function getEntityId(){
+        return $this->data["entityId"];
+    }
+
+    public function incrementViews(){
+        $query = $this->con->prepare("UPDATE videos SET views=views+1 WHERE id=:id");
+        $query->bindValue(":id",$this->getId());
+        $query->execute();
+    }
+
+    public function getSeasonAndEpisode(){
+        if($this->isMovie()){
+            return;
+        }
+        $season = $this->getSeasonNumber();
+        $episode = $this->getEpisodeNumber();
+
+        return "Season $season, Episode $episode";
+    }
+    
+    public function isMovie(){
+        return $this->data["isMovie"] == 1;
+    }
+
+    public function isInProgress($username){
+        $query = $this->con->prepare("SELECT * FROM videoProgress 
+                                      WHERE videoId=:videoId AND username=:username
+                                      AND finished=0");
+
+        $query->bindValue(":videoId", $this->getId());
+        $query->bindValue(":username", $username);
+        $query->execute();
+
+        return $query->rowCount() != 0;
+
+        
     }
 }
 

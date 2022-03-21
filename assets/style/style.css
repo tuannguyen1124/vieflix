@@ -120,6 +120,10 @@ a {
     display: flex;
 }
 
+.previewCategories h1 {
+    color: #fff;
+}
+
 .previewContainer.small {
     width: 230px;
     height: 129px;
@@ -133,6 +137,10 @@ a {
     object-fit: cover;
 }
 
+.previewCategories {
+    padding-left: 50px;
+}
+
 .previewOverlay {
     width: 100%;
     height: 100%;
@@ -142,8 +150,14 @@ a {
 
 .previewOverlay .mainDetails h3 {
     color: #fff;
-    font-size: 40px;
+    font-size: 42px;
     margin: 15px 0;
+}
+
+.previewOverlay .mainDetails h4 {
+    color: #fff;
+    font-size: 18px;
+    margin-top: 0;
 }
 
 .previewOverlay .mainDetails {
@@ -180,7 +194,7 @@ button i {
 
 .wrapper {
     min-width: 1050px;
-    min-height: 100%;
+    min-height: 950px;
     background-color: #141414;
 }
 
@@ -231,4 +245,115 @@ div::-webkit-scrollbar {
     color: #fff;
     width: 100%;
     white-space: normal;
+}
+
+.watchContainer video {
+    width: 100%;
+}
+
+.videoControls {
+    position: absolute;
+    width: 100%;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.videoControls h2 {
+    color: #fff;
+}
+
+.videoControls button {
+    font-size: 35px;
+    padding: 20px;
+    color: #fff;
+    background-color: transparent;
+    border: none;
+    padding: none;
+}
+
+.upNextContainer h2,
+.upNextContainer h3 {
+    color: #fff;
+}
+
+.upNext {
+    height: 100%;
+    justify-content: center;
+}
+
+.upNextContainer button {
+    padding: 0;
+}
+
+.watchNav {
+    z-index: 2;
+}
+
+.topBar {
+    position: fixed;
+    width: 100%;
+    z-index: 1;
+    display: flex;
+    padding: 20px 60px;
+    height: 60px;
+    box-sizing: border-box;
+    min-width: 1050px;
+    transition: background-color 200ms linear;
+    align-items: center;
+}
+
+.topBar.scrolled {
+    background-color: #141414;
+    transition: background-color 200ms linear;
+}
+
+.logoContainer {
+    height: 42px;
+}
+
+.logoContainer img {
+    height: 100%;
+}
+
+.navLinks {
+    display: flex;
+    list-style: none;
+}
+
+.navLinks a {
+    color: #fff;
+    font-size: 16px;
+    margin-left: 20px;
+}
+
+.rightItems {
+    text-align: right;
+    flex: 1;
+}
+
+.rightItems a {
+    padding: 10px;
+    font-size: 22px;
+    color: #fff;
+}
+
+.rightItems a i {
+    color: #fff;
+}
+
+.textboxContainer {
+    padding: 100px 50px;
+}
+
+.searchInput {
+    height: 50px;
+    width: 600px;
+    border: 1px solid #dedede;
+    background-color: transparent;
+    color: #fff;
+    font-size: 20px;
+    padding: 5px 10px;
+    border-radius: 3px;
 }
